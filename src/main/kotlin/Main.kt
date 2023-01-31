@@ -1,5 +1,7 @@
 import org.openorbit.tools.swf.decryptor.SwfDecryptionUtility
 
 fun main(args: Array<String>) {
-    SwfDecryptionUtility("""PATH_TO_SWFS""").decrypt()
+    if(args.isEmpty())
+        throw IllegalArgumentException("no root path to swf files given.")
+    SwfDecryptionUtility(args[0]).decrypt()
 }
