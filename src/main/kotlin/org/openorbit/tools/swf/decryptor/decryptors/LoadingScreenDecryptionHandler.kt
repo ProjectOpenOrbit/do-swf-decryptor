@@ -1,7 +1,6 @@
 package org.openorbit.tools.swf.decryptor.decryptors
 
-import java.util.zip.Inflater
-import java.util.zip.InflaterInputStream
+import org.openorbit.tools.common.utils.Extensions.inflated
 
 object LoadingScreenDecryptionHandler {
     fun decryptLoadingScreen(encryptedData: ByteArray): ByteArray {
@@ -13,12 +12,5 @@ object LoadingScreenDecryptionHandler {
             decompressedData[i] = curByte.toInt().xor(xorByte).toByte()
         }
         return decompressedData
-    }
-
-    /**
-     * extension function to easily inflate byte arrays (zlib decompression)
-     */
-    private fun ByteArray.inflated():ByteArray {
-        return InflaterInputStream(this.inputStream(),Inflater()).readBytes()
     }
 }
