@@ -1,11 +1,10 @@
 package org.openorbit.tools.swf.decryptor
 
 import org.openorbit.tools.swf.decryptor.MainEncryptionAlgorithmFinder.determineEncryptionAlgorithm
+import org.openorbit.tools.swf.decryptor.MainEncryptionKeyParser.parseEncryptionKey
 import org.openorbit.tools.swf.decryptor.decryptors.LoadingScreenDecryptionHandler.decryptLoadingScreen
 import java.io.File
 import java.io.FileNotFoundException
-import java.nio.file.Files
-import java.nio.file.Paths
 
 class SwfDecryptionUtility(private val workingDirectory: String) {
 
@@ -23,12 +22,16 @@ class SwfDecryptionUtility(private val workingDirectory: String) {
         }
     }
 
-    private fun decryptLoadingScreen() {
+    private fun decryptLoadingScreen(): File {
         val decryptedFile = decryptLoadingScreen(fileLoadingScreen.readBytes())
-        Files.write(Paths.get(workingDirectory, "loadingscreen_decrypted.swf"), decryptedFile)
+        return File("$workingDirectory/loadingscreen_decrypted.swf").apply { writeBytes(decryptedFile) }
     }
+
 
     fun decrypt() {
         println("The algorithm is " + determineEncryptionAlgorithm(filePreloader))
+        val file = decryptLoadingScreen()
+        println("loadingscreen decrypted")
+        println("EncryptionKey: " + parseEncryptionKey(file))
     }
 }
