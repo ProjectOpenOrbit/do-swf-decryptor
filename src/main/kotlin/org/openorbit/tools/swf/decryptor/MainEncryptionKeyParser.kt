@@ -7,9 +7,10 @@ private const val NAME_OF_CLASS_WITH_KEY = "ViewPrepCommand"
 
 object MainEncryptionKeyParser {
     fun parseEncryptionKey(decryptedLoadingScreen: File): String {
+        println("Opening loadingscreen.swf")
         val loadingScreen = SWF(decryptedLoadingScreen.inputStream(), true)
-        println(loadingScreen.aS3Packs.size)
         val script = getContainingClassCode(loadingScreen)
+        println("Parsing key")
         return parseKeyFromScript(script)
     }
 
@@ -23,7 +24,7 @@ object MainEncryptionKeyParser {
 
     private fun getContainingClassCode(loadingScreen: SWF): String {
         val find = loadingScreen.aS3Packs.find {
-            it.classPath.className.apply{println(it)}.equals(NAME_OF_CLASS_WITH_KEY)
+            it.classPath.className.equals(NAME_OF_CLASS_WITH_KEY)
         }
         return SWF.getCached(find).text
     }
