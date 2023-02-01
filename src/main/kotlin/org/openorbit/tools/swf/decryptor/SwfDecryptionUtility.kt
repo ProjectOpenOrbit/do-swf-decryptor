@@ -12,7 +12,7 @@ class SwfDecryptionUtility(private val workingDirectory: String) {
 
     // the preloader knows the decryption algorithm
     private val filePreloader: File = File("$workingDirectory/preloader.swf")
-    private val fileLoadingScreen: File = File("$workingDirectory/loadingScreen.swf")
+    private val fileLoadingScreen: File = File("$workingDirectory/loadingscreen.swf")
     private val fileMain: File = File("$workingDirectory/main.swf")
 
     init {
