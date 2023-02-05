@@ -7,7 +7,15 @@ object Extensions {
     /**
      * extension function to easily inflate byte arrays (zlib decompression)
      */
-    fun ByteArray.inflated():ByteArray {
+    fun ByteArray.asInflated(): ByteArray {
         return InflaterInputStream(this.inputStream(), Inflater()).readBytes()
+    }
+
+    fun ByteArray.toIntArray(): IntArray {
+        val ret = IntArray(size)
+        for (i in indices) {
+            ret[i] = this[i].toInt()
+        }
+        return ret
     }
 }

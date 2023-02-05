@@ -1,19 +1,18 @@
 package org.openorbit.tools.swf.decryptor.algorithms
 
-import org.openorbit.tools.common.utils.byteArrayFromHexStr
 import java.security.MessageDigest
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 
 private const val ALGORITHM_RC4 = "RC4"
 
-class CustomRC4Algorithm(rawKeyStringFromLoadingscreen: String) {
+class CustomRC4Algorithm(keyBytes: ByteArray) {
 
     private val maxLengthOfHashedKey = 16
     private lateinit var hashedKey: ByteArray
 
     init {
-        hashKey(byteArrayFromHexStr(rawKeyStringFromLoadingscreen))
+        hashKey(keyBytes)
     }
 
     private fun hashKey(key: ByteArray) {
