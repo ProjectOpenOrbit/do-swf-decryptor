@@ -26,9 +26,13 @@ I did not find a repository that serves the JAR file, so it is included as a bin
 
 # Build
 
+This software uses the gradle build tool. Refer to the manufacturer page: https://gradle.org/install/
+
+Make sure you have this installed before attempting to build or run the software.
+
 Build the decryptor like this: `gradle build`
 
-The downloader can only be run in an IDE such as IntelliJ.
+The downloader script can only be run in an IDE such as IntelliJ.
 
 # Run
 
