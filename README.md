@@ -1,6 +1,6 @@
 # do-swf-decryptor
 Suite to decrypt DarkOrbit main.swf and loadingscreen.swf files.
-Written in Kotlin.
+This is written in Kotlin.
 
 # Purpose
 
@@ -12,19 +12,18 @@ This is only possible by decrypting the main.swf file containing that informatio
 Using that information, we can generate source code which implements the official server protocol.
 
 # Features
-1. Download swf files `preloader.swf`, `loadingscreen.swf` and `main.swf`
-2. Decrypts loadingscreen and main.swf with little effort.
-   
-(!) There are two algorithms for the main.swf. This tool only supports RC4. The other algorithm is in the works.
-   
+
+1. Downloads swf files `preloader.swf`, `loadingscreen.swf` and `main.swf`
+2. Decrypts LoadingScreen and main.swf with little effort.
+
 # Libraries
 
 We need ffdec-lib for decompiling SWF files.
 
-Before you can compile the tool, you will have to download the library from here: https://github.com/jindrapetrik/jpexs-decompiler.
+Before you can compile the tool, you will have to download the library from
+here: https://github.com/jindrapetrik/jpexs-decompiler.
 
 Paste it as "ffdec_lib.jar" in the lib directory and gradle should run fine.
-
 
 # Build
 Build the decryptor like this: `gradle build`
