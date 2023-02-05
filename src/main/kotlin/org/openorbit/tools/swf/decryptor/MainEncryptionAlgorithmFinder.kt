@@ -10,18 +10,18 @@ import java.io.File
  */
 object MainEncryptionAlgorithmFinder {
 
-    // obfuscated name of the class that contains the custom encryption algorithm
-    private const val CLASSNAME_ALGO_CUSTOM = "§--_--_--§"
+    // obfuscated and de-obfuscated names of the class that contains the custom encryption algorithm
+    private val CLASSNAME_ALGO_CUSTOM = arrayOf("§--_--_--§", "class_15")
 
-    // obfuscated name of the class that contains the modified ARC4 encryption algorithm
-    private const val CLASSNAME_ALGO_ARC4 = "§-_---_§"
+    // obfuscated and de-obfuscated names of the class that contains the modified ARC4 encryption algorithm
+    private val CLASSNAME_ALGO_ARC4 = arrayOf("§-_---_§", "class_16")
 
     fun determineEncryptionAlgorithm(preloaderFile: File): MainEncryptionAlgorithm {
         val swf = SWF(preloaderFile.inputStream(), true)
         val result = swf.aS3Packs.find { it.classPath.packageStr.last.equals("algorithms") }
         return when (result.toString()) {
-            CLASSNAME_ALGO_ARC4 -> MainEncryptionAlgorithm.RC4
-            CLASSNAME_ALGO_CUSTOM -> MainEncryptionAlgorithm.CUSTOM
+            in CLASSNAME_ALGO_ARC4 -> MainEncryptionAlgorithm.RC4
+            in CLASSNAME_ALGO_CUSTOM -> MainEncryptionAlgorithm.CUSTOM
             else -> throw RuntimeException("Could not determine encryption algorithm from preloader")
         }
     }
