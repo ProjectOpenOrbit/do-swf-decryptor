@@ -38,4 +38,6 @@ Run the decryptor like this: `gradle run`
 
 It will spit out a lengthy description how to use the tool and which parameters to specify.
 
+Note: You can pass arguments to the application like this: `gradle run --args "<ARGUMENTS GO HERE>"`
+
 You cannot create a jar yet. We are working on that.
