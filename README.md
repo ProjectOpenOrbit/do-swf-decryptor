@@ -22,22 +22,20 @@ Using that information, we can generate source code which implements the officia
 This tool makes use of the JPEXS ffdec decompiler.
 The source code can be found here: https://github.com/jindrapetrik/jpexs-decompiler
 
-I did not find a repository that serves the JAR file, so it is included as a binary in the repo.
+I did not find a repository that serves the JAR file, so it is included as a binary in the repo (with permission of JPEXS).
 
 # Build
 
-This software uses the gradle build tool. Refer to the manufacturer page: https://gradle.org/install/
+This software uses the gradle build tool. Make sure you have this installed before attempting to build or run the software.
 
-Make sure you have this installed before attempting to build or run the software.
+Refer to the manufacturer page (https://gradle.org/install/) for more information.
 
 Build the decryptor like this: `gradle build`
 
-The downloader script can only be run in an IDE such as IntelliJ.
-
 # Run
 
-The decryptor expects an argument with the path to the folder which contains the swf files.
+Run the decryptor like this: `gradle run`
 
-Run the decryptor like this: `gradle run --args "PATH_TO_FOLDER_WITH_SWF_FILES"`
+It will spit out a lengthy description how to use the tool and which parameters to specify.
 
 You cannot create a jar yet. We are working on that.
