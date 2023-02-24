@@ -24,22 +24,6 @@ fun parseArgs(args: Array<String>) {
 
 }
 
-
-fun main(args: Array<String>) {
-
-    if (args.isEmpty()) printHelpTextAndExit()
-
-    parseArgs(args)
-
-    checkPathValid()
-
-    if (downloadFiles) {
-        downloadSwfCollection(pathToFiles)
-    }
-
-    SwfDecryptionUtility(workingDirectory = pathToFiles).decrypt()
-}
-
 /**
  * Make sure that the target path
  * 1) exists and
@@ -76,4 +60,21 @@ fun printHelpTextAndExit() {
     )
 
     exitProcess(0)
+}
+
+
+fun main(args: Array<String>) {
+
+    if (args.isEmpty()) printHelpTextAndExit()
+
+    println("DarkOrbit SWF Decryption Suite v$VERSION by tram98\n")
+    parseArgs(args)
+
+    checkPathValid()
+
+    if (downloadFiles) {
+        downloadSwfCollection(pathToFiles)
+    }
+
+    SwfDecryptionUtility(workingDirectory = pathToFiles).decrypt()
 }
