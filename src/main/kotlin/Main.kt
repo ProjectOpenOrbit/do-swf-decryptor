@@ -4,7 +4,7 @@ import java.nio.file.Files.notExists
 import java.nio.file.Paths
 import kotlin.system.exitProcess
 
-const val VERSION: String = "1.0"
+const val VERSION: String = "1.1"
 var downloadFiles: Boolean = false
 var pathToFiles: String = ""
 
