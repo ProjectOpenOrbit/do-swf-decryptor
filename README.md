@@ -1,5 +1,7 @@
 # DarkOrbit SWF Decryption Utility
 
+**NOTE: The decryptor seems to be no longer necessary for the latest SWF files, as their obfuscation was seemingly disabled. For older files, this decryptor may still work.**
+
 This is a small suite to decrypt DarkOrbit main.swf and loadingscreen.swf files.
 The software is written in Kotlin.
 
